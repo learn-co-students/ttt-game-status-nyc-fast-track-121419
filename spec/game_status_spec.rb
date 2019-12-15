@@ -16,7 +16,7 @@ describe "./lib/game_status.rb" do
     end
   end
 
-  describe "#won?" do
+  describe "#won?" do 
     it 'returns falsey for an empty board' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
