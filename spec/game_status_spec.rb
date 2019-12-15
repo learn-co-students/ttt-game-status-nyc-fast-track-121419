@@ -3,8 +3,19 @@ require_relative '../lib/game_status.rb'
 describe "./lib/game_status.rb" do
   describe 'WIN_COMBINATIONS' do
     it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
-      expect(WIN_COMBINATIONS.size).to eq(8)
 
+      if WIN_COMBINATIONS.size == 8
+        array[0,1,2]
+        array[3,4,5]
+        array[6,7,8]
+        array[0,3,6]
+        array[1,4,7]
+        array[2,5,8]
+        array[0,4,8]
+        array[2,4,6]
+        return won
+      else
+        return false
       expect(WIN_COMBINATIONS).to include_array([0,1,2])
       expect(WIN_COMBINATIONS).to include_array([3,4,5])
       expect(WIN_COMBINATIONS).to include_array([6,7,8])
@@ -18,14 +29,16 @@ describe "./lib/game_status.rb" do
 
   describe "#won?" do
     it 'returns falsey for an empty board' do
-      board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
+     if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+        return false
+        
       expect(won?(board)).to be_falsey
     end
 
     it 'returns falsey for a draw' do
-      board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
+      if board != WIN_COMBINATIONS
+        return false
+        
       expect(won?(board)).to be_falsey
     end
 
